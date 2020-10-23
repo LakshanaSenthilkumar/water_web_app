@@ -14,11 +14,11 @@ Detect if the water is fit for consumption using ML and python
 """)
 
 #Open and display an image
-image = Image.open('F:/Final year/7th sem/project/DSC_0036.jpg')
+image = Image.open('DSC_0036.jpg')
 st.image(image, caption='ML', use_column_width=True)
 
 #Get the data
-df=pd.read_excel('F:/Final year/7th sem/project/water_quality.xlsx')
+df=pd.read_excel('water_quality.xlsx')
 
 #set a subheader
 st.subheader('Data chart:')
