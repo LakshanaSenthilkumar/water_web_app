@@ -31,7 +31,7 @@ df=pd.read_excel('water_quality.xlsx')
         
 #get user input
 def get_user_input():
-    place = st.subheader("Location:")
+    place = st.text_input("Location:")
     return place
     
 place_name=get_user_input()
