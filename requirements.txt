@@ -9,3 +9,7 @@ imbalanced-learn>=0.7
 xlrd>=1.0.0
 firebase
 python_jwt
+gcloud
+sseclient
+pycrypto
+requests-toolbelt
