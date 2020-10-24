@@ -8,3 +8,4 @@ Pillow>=8.0.1
 imbalanced-learn>=0.7
 xlrd>=1.0.0
 firebase
+python_jwt
