@@ -7,6 +7,7 @@ from sklearn.metrics import accuracy_score
 from PIL import Image
 import streamlit as st
 from firebase import firebase
+from twilio.rest import Client
 
 #firebase connectivity
 firebase = firebase.FirebaseApplication("https://drought-d0g.firebaseio.com/",None)
