@@ -32,29 +32,27 @@ df=pd.read_excel('water_quality.xlsx')
         
 #get user input
 def get_user_input():
-    place = st.text_input("Location:")
-    return place
+    option = st.selectbox('Location:',('','Madurai', 'Chennai'))
+    return option
     
 place_name=get_user_input()
 
 #data display
 if place_name != "" :
-    st.subheader(place_name)
+    st.subheader('Location: ')
+    st.write(place_name)
     #filtering dataset
     filtered = new_df[new_df['Location']==place_name]
+    graph_df = filtered.set_index('Time')
 
     #set a subheader
-    st.subheader('Water level chart:')
-    chart = st.bar_chart(filtered['Water_level'])
+    st.subheader('Water level and Conductivity chart:')
+    g1=pd.DataFrame(graph_df,columns=['Water_level','Conductivity'])
+    chart = st.area_chart(g1)
 
-    st.subheader('pH chart:')
-    chart = st.bar_chart(filtered['pH'])
-
-    st.subheader('Conductivity chart:')
-    chart = st.bar_chart(filtered['Conductivity'])
-
-    st.subheader('Turbidity chart:')
-    chart = st.bar_chart(filtered['Turbidity'])
+    g2=pd.DataFrame(graph_df,columns=['pH','Turbidity'])
+    st.subheader('pH and Turbidity chart:')
+    chart = st.line_chart(g2)
 
     #split data
     feature_cols=['pH','Conductivity','Turbidity']
@@ -87,11 +85,11 @@ if place_name != "" :
 
     st.subheader('Water Availability:')
     #water level
-    if(filtered.iloc[0]['Water_level']<100):
+    if(filtered.iloc[0]['Water_level']>600):
         st.write('ALERT..Low water levels')
     else:
         st.write('You have sufficent water!!')
-        
+
     #send sms using twilio
     account_sid = "ACfa6b1e47c5338f9ec1e1663bc95750a9"
     auth_token= "1a096b6c6dccd956cc429cff00fe77b4"
@@ -101,3 +99,5 @@ if place_name != "" :
         client= Client(account_sid,auth_token)
         client.messages.create(from_="+14159415889", body="WARNING!!..Water level is below threshold and the quality needs to be inspected",to="+919842511154")
         st.write('SMS sent successfully!!')
+        
+
