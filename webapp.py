@@ -97,7 +97,7 @@ if place_name != "" :
     st.subheader('To alert the Municipal corporation officials, please click the button below:')
     if(st.button('Alert SMS')):
         client= Client(account_sid,auth_token)
-        client.messages.create(from_="+14159415889", body="WARNING!!..Water level is below threshold and the quality needs to be inspected",to="+91900343343")
+        client.messages.create(from_="+14159415889", body="WARNING!!..Water level is below threshold and the quality needs to be inspected",to="+919003433431")
         st.write('SMS sent successfully!!')
         
 
