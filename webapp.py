@@ -92,12 +92,12 @@ if place_name != "" :
 
     #send sms using twilio
     account_sid = "ACfa6b1e47c5338f9ec1e1663bc95750a9"
-    auth_token= "ba52210f3c3aa856ed3e415a945966ae"
+    auth_token= "04869ad213af3c8d0a2dd0c755b26c27"
     
     st.subheader('To alert the Municipal corporation officials, please click the button below:')
     if(st.button('Alert SMS')):
         client= Client(account_sid,auth_token)
-        client.messages.create(from_="+14159415889", body="WARNING!!..Water level is below threshold and the quality needs to be inspected",to="+919842511154")
+        client.messages.create(from_="+14159415889", body="WARNING!!..Water level is below threshold and the quality needs to be inspected",to="+91900343343")
         st.write('SMS sent successfully!!')
         
 
