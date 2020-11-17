@@ -92,7 +92,7 @@ if place_name != "" :
 
     #send sms using twilio
     account_sid = "ACfa6b1e47c5338f9ec1e1663bc95750a9"
-    auth_token= "4c9e1ae537d28e5db10d4a3e8d80c0d8"
+    auth_token= "ed57b9a903463709e4e18a87eec6e674"
     
     st.subheader('To alert the Municipal corporation officials, please click the button below:')
     if(st.button('Alert SMS')):
